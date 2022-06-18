@@ -1,0 +1,13 @@
+{
+  "name": "disney-api-nodejs",
+  "version": "1.0.0",
+  "description": "Challenge by Alkemy. Build a Nodejs API about Disney characters and movies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Andy Nievas",
+  "license": "ISC"
+}
