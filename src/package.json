@@ -9,5 +9,9 @@
     "dev": "nodemon index.js"
   },
   "author": "Andy Nievas",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "sequelize": "^6.21.0"
+  }
 }

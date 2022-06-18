@@ -14,6 +14,7 @@ const sequelize = new Sequelize(
 
 const Character = require("./character")(sequelize, Model, DataTypes);
 const Movie = require("./movie")(sequelize, Model, DataTypes);
+const User = require("./user")(sequelize, Model, DataTypes);
 
 // Define relationships
 
@@ -25,4 +26,5 @@ module.exports = {
   sequelize,
   Character,
   Movie,
+  User,
 };

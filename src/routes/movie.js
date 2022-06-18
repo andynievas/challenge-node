@@ -3,7 +3,7 @@ const express = require("express");
 
 const movieController = require("../controllers/movieController");
 
-const movieRouter = expres.Router;
+const movieRouter = express.Router;
 
 // GET /movies?name=nombre
 // GET /movies?age=edad
