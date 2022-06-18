@@ -1,7 +1,13 @@
 
+const bcryptjs = require("bcryptjs");
 
 module.exports = (sequelize, Model, DataTypes) => {
-  class User extends Model { }
+  class User extends Model {
+    async checkPassword(password) {
+      const match = await bcryptjs.compare(password, this.password);
+      return match;
+    }
+  }
 
   User.init(
     {
@@ -14,24 +20,11 @@ module.exports = (sequelize, Model, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      image: {
+      email: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      age: {
-        type: DataTypes.SMALLINT,
-        allowNull: false,
-      },
-      weight_value: {
-        type: DataTypes.FLOAT,
-        allowNull: false,
-      },
-      weight_unit: {
-        type: DataTypes.STRING,
-        defaultValue: "Kg",
-        allowNull: false
-      },
-      story: {
+      password: {
         type: DataTypes.STRING,
         allowNull: false,
       },
