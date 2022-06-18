@@ -1,6 +1,6 @@
 
 
-const { User, Character, Movie } = require("../models");
+// const { User, Character, Movie } = require("../models");
 
 async function register(req, res) {
 
