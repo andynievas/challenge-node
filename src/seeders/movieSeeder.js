@@ -7,21 +7,21 @@ const movies = [
     image: "none",
     release_date: "hoy",
     rating: 3,
-    characterId: [1, 2],
+    genreId: Math.ceil(Math.random() * 3),
   },
   {
     title: "Shrek",
     image: "none",
     release_date: "hoy",
     rating: 3,
-    characterId: [3, 2],
+    genreId: Math.ceil(Math.random() * 3),
   },
   {
     title: "Shrek",
     image: "none",
     release_date: "hoy",
     rating: 3,
-    characterId: [2, 1],
+    genreId: Math.ceil(Math.random() * 3),
   },
 ];
 

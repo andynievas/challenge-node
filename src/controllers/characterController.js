@@ -2,13 +2,15 @@
 
 const { Character, Movie } = require("../models");
 
+
+// GET /characters?name=nombre
+// GET /characters?age=edad
+// GET /characters?movies=idMovie
+
+
 async function index(req, res) {
   try {
-    //const queen = await Profile.create({ name: 'Queen' });
-
-    // await amidala.addProfile(queen, { through: { selfGranted: false } });
-
-    const amidala = await Character.create({
+    false && await Character.create({
       name: 'andy',
       movies: [{
         title: 'Queen',
@@ -20,12 +22,12 @@ async function index(req, res) {
       include: Movie
     });
 
-    const amidala2 = await Character.create({
-      name: 'andy2',
+    const characters = await Character.findAll({
+      include: Movie,
+      through: {
+        attributes: []
+      }
     });
-    await amidala2.addMovie(1);
-
-    const characters = await Character.findAll({ include: Movie });
     return res.json({ msg: "Ok", characters });
   } catch (error) {
     console.log(error);
