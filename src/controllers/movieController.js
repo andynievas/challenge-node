@@ -1,21 +1,41 @@
 
 
-// const { Character, Movie } = require("../models");
+const { Character, Movie } = require("../models");
 
 async function index(req, res) {
-    return [1, 2, 3]
+    try {
+        const movies = await Movie.findAll();
+        return res.json({ msg: "Ok", movies });
+    } catch (error) {
+        return res.json({ msg: "Server error" });
+    }
 }
 
 async function store(req, res) {
-    return [1, 2, 3]
+    try {
+        const movies = await Movie.findAll();
+        return res.json({ msg: "Ok", movies });
+    } catch (error) {
+        return res.json({ msg: "Server error" });
+    }
 }
 
 async function update(req, res) {
-    return [1, 2, 3]
+    try {
+        const movies = await Movie.findAll();
+        return res.json({ msg: "Ok", movies });
+    } catch (error) {
+        return res.json({ msg: "Server error" });
+    }
 }
 
 async function destroy(req, res) {
-    return [1, 2, 3]
+    try {
+        const movies = await Movie.findAll();
+        return res.json({ msg: "Ok", movies });
+    } catch (error) {
+        return res.json({ msg: "Server error" });
+    }
 }
 
 module.exports = {

@@ -12,18 +12,22 @@ module.exports = (sequelize, Model, DataTypes) => {
       },
       name: {
         type: DataTypes.STRING,
+        defaultValue: "",
         allowNull: false,
       },
       image: {
         type: DataTypes.STRING,
+        defaultValue: "",
         allowNull: false,
       },
       age: {
         type: DataTypes.SMALLINT,
+        defaultValue: 0,
         allowNull: false,
       },
       weight_value: {
         type: DataTypes.FLOAT,
+        defaultValue: 0,
         allowNull: false,
       },
       weight_unit: {
@@ -34,6 +38,7 @@ module.exports = (sequelize, Model, DataTypes) => {
       story: {
         type: DataTypes.STRING,
         allowNull: false,
+        defaultValue: "",
       },
     },
     {

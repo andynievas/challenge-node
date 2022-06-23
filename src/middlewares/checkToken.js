@@ -2,7 +2,7 @@
 
 async function checkToken(req, res, next) {
 
-  if (req.body.user) {
+  if (req.body.user != "andy") {
     next()
   }
   else {

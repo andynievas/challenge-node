@@ -19,7 +19,7 @@ module.exports = (sequelize, Model, DataTypes) => {
         allowNull: false,
       },
       release_date: {
-        type: DataTypes.DATEONLY,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       rating: {

@@ -4,7 +4,7 @@
 
 
 async function index(req, res) {
-  return [1, 2, 3]
+  return res.json({ msg: "Ok" });
 }
 
 module.exports = {

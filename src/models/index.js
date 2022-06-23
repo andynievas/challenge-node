@@ -18,9 +18,10 @@ const User = require("./user")(sequelize, Model, DataTypes);
 
 // Define relationships
 
-Movie.hasMany(Character);
-Character.hasMany(Movie);
-//Character.belongsToMany(Movie);
+Movie.belongsToMany(Character, { through: 'Characters_Movies' });
+Character.belongsToMany(Movie, { through: 'Characters_Movies' });
+
+// Character.belongsToMany(Movie);
 
 module.exports = {
   sequelize,
