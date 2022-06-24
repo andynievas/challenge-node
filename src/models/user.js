@@ -22,6 +22,7 @@ module.exports = (sequelize, Model, DataTypes) => {
       },
       email: {
         type: DataTypes.STRING,
+        unique: true,
         allowNull: false,
       },
       password: {
@@ -34,6 +35,11 @@ module.exports = (sequelize, Model, DataTypes) => {
       modelName: "user",
     },
   );
+
+  User.beforeCreate(async (user, options) => {
+    const hashedPassword = await bcryptjs.hash(user.password, process.env.BCRYPTROUNDS);
+    user.password = hashedPassword;
+  });
 
   return User;
 };

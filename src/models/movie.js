@@ -16,14 +16,17 @@ module.exports = (sequelize, Model, DataTypes) => {
       },
       image: {
         type: DataTypes.STRING,
+        defaultValue: 'none',
         allowNull: false,
       },
       release_date: {
         type: DataTypes.STRING,
+        defaultValue: 'none',
         allowNull: false,
       },
       rating: {
         type: DataTypes.ENUM(['1', '2', '3', '4', '5']),
+        defaultValue: '1',
         allowNull: false,
       },
     },

@@ -24,5 +24,5 @@ const characters = [
 
 module.exports = async () => {
   await Character.bulkCreate(characters);
-  console.log("[Database] Se corrió el seeder de Personajes.");
+  console.log("[Database] Characters seeder.");
 };

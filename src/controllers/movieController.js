@@ -10,90 +10,86 @@ const { Character, Movie, Genre } = require("../models");
 
 async function index(req, res) {
 
-  if (req.params.genre) {
+  if (req.query.name) {
     try {
       const movies = await Movie.findAll({
         where: {
-          '$Genre.name$': "action",
-          limit: 2
+          title: req.query.name
         },
-        include: Genre
+        order: [['title', req.query.order || "ASC"]],
+        limit: 10
       });
-      return res.json({ msg: "Ok", movies });
+      return res.json({ status: "Ok", movies });
     } catch (error) {
       console.log(error);
-      return res.json({ msg: "Server error" });
+      return res.json({ status: "Server error" });
     }
-  } else if ("quiero una sola" && req.params.name) {
-    try {
-      const movies = await Movie.findOne({
-        include: [{
-          model: Character,
-          through: {
-            attributes: []
-          }
-        }]
-      });
-      return res.json({ msg: "Ok", movies });
-    } catch (error) {
-      console.log(error);
-      return res.json({ msg: "Server error" });
-    }
-  } else if ("quiero todas") {
+  } else if (req.query.genre) {
     try {
       const movies = await Movie.findAll({
         where: {
-          limit: 2
-        }
+          '$name$': req.query.genre,
+        },
+        limit: 10,
+        attributes: { exclude: ['genreId'] },
+        include: [{
+          model: Genre,
+          attributes: ["name", "image"]
+        }],
+        order: [['title', req.query.order || "ASC"]],
       });
-      return res.json({ msg: "Ok", movies });
+
+      return res.json({ status: "Ok", movies });
     } catch (error) {
       console.log(error);
-      return res.json({ msg: "Server error" });
+      return res.json({ status: "Server error" });
     }
-  }
+  } else {
+    try {
+      const movies = await Movie.findAll({
+        limit: 10,
+        order: [['title', req.query.order || "ASC"]],
+      });
 
-
-  try {
-    const movies = await Movie.findAll({
-      include: [{
-        model: Character,
-        through: {
-          attributes: []
-        }
-      }]
-    });
-    return res.json({ msg: "Ok", movies });
-  } catch (error) {
-    console.log(error);
-    return res.json({ msg: "Server error" });
+      return res.json({ status: "Ok", movies });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ status: "Server error" });
+    }
   }
 }
 
 async function store(req, res) {
   try {
-    const movies = await Movie.findAll();
-    return res.json({ msg: "Ok", movies });
+    const movie = await Movie.create(req.body);
+    return res.json({ status: "Ok", movie });
   } catch (error) {
-    return res.json({ msg: "Server error" });
+    console.log(error);
+    return res.status(500).json({ status: "Server error" });
   }
 }
 
 async function update(req, res) {
   try {
     const movies = await Movie.findAll();
-    return res.json({ msg: "Ok", movies });
+    return res.json({ status: "Ok", movies });
   } catch (error) {
-    return res.json({ msg: "Server error" });
+    console.log(error);
+    return res.status(500).json({ status: "Server error" });
   }
 }
 
 async function destroy(req, res) {
   try {
-    const movies = await Movie.findAll();
-    return res.json({ msg: "Ok", movies });
+    const movies = await Movie.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+    return res.json({ status: "Ok", movies });
   } catch (error) {
-    return res.json({ msg: "Server error" });
+    console.log(error);
+    return res.status(500).json({ status: "Server error" });
   }
 }
 

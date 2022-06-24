@@ -7,16 +7,28 @@ const genres = [
     image: "none",
   },
   {
-    name: "Infantil",
+    name: "Drama",
     image: "none",
   },
   {
-    name: "Princess",
+    name: "Fantasy",
+    image: "none",
+  },
+  {
+    name: "Romance",
+    image: "none",
+  },
+  {
+    name: "Musical",
+    image: "none",
+  },
+  {
+    name: "Family",
     image: "none",
   },
 ];
 
 module.exports = async () => {
   await Genre.bulkCreate(genres);
-  console.log("[Database] Se corrió el seeder de Genre.");
+  console.log("[Database] Genre seeder.");
 };

@@ -6,7 +6,7 @@ async function checkToken(req, res, next) {
     next()
   }
   else {
-    res.json({ msg: "No authenticated" });
+    res.json({ status: "No authenticated" });
   }
 
 }

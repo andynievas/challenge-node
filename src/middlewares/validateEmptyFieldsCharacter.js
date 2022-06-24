@@ -1,0 +1,13 @@
+
+
+async function emptyFields(req, res, next) {
+
+  if (req.body.name && req.body.image && req.body.age && req.body.weight_value && req.body.weight_unit && req.body.story) {
+    next()
+  }
+  else {
+    res.status(400).json({ status: "Empty fields" });
+  }
+}
+
+module.exports = emptyFields;

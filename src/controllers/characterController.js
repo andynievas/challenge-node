@@ -10,55 +10,53 @@ const { Character, Movie } = require("../models");
 
 async function index(req, res) {
   try {
-    false && await Character.create({
-      name: 'andy',
-      movies: [{
-        title: 'Queen',
-        image: "holiu",
-        release_date: "ayer",
-        rating: 1,
-      }]
-    }, {
-      include: Movie
-    });
-
     const characters = await Character.findAll({
-      include: Movie,
-      through: {
-        attributes: []
-      }
+      limit: 10,
+      attributes: ["name", "image"]
     });
-    return res.json({ msg: "Ok", characters });
+    return res.json({ status: "Ok", characters });
   } catch (error) {
     console.log(error);
-    return res.json({ msg: "Server error" });
+    return res.json({ status: "Server error" });
   }
 }
 
 async function store(req, res) {
   try {
-    const characters = await Character.findAll();
-    return res.json({ msg: "Ok", characters });
+    const characters = await Character.create(req.body);
+    return res.json({ status: "Ok", characters });
   } catch (error) {
-    return res.json({ msg: "Server error" });
+    console.log(error);
+    return res.json({ status: "Server error" });
   }
 }
 
 async function update(req, res) {
   try {
-    const characters = await Character.findAll();
-    return res.json({ msg: "Ok", characters });
+    delete req.body.id;
+    const characters = await Character.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    });
+    return res.json({ status: "Ok", characters });
   } catch (error) {
-    return res.json({ msg: "Server error" });
+    console.log(error);
+    return res.json({ status: "Server error" });
   }
 }
 
 async function destroy(req, res) {
   try {
-    const characters = await Character.findAll();
-    return res.json({ msg: "Ok", characters });
+    const characters = await Character.destroy({
+      where: {
+        name: req.params.name
+      }
+    });
+    return res.json({ status: "Ok", characters });
   } catch (error) {
-    return res.json({ msg: "Server error" });
+    console.log(error);
+    return res.json({ status: "Server error" });
   }
 }
 
