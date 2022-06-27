@@ -1,13 +1,14 @@
 
 
 const express = require("express");
-const checkToken = require("../middlewares/checkToken");
+const emptyFieldsLogin = require("../middlewares/validateEmptyFieldsLogin");
+const emptyFieldsRegister = require("../middlewares/validateEmptyFieldsRegister");
 const authController = require("../controllers/authController");
 
 const authRouter = express.Router();
 
-authRouter.post("/auth/login", checkToken, authController.login);
+authRouter.post("/auth/login", emptyFieldsLogin, authController.login);
 
-authRouter.post("/auth/register", authController.register);
+authRouter.post("/auth/register", emptyFieldsRegister, authController.register);
 
 module.exports = authRouter;

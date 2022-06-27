@@ -9,13 +9,13 @@ const characters = [
     story: "Habia una vez",
   },
   {
-    name: "Valentina",
+    name: "Woody",
     age: 23,
     weight_value: 70,
     story: "Habia una vez",
   },
   {
-    name: "Ines",
+    name: "Rex",
     age: 23,
     weight_value: 70,
     story: "Habia una vez",

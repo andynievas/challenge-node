@@ -10,52 +10,47 @@ const { Character, Movie, Genre } = require("../models");
 
 async function index(req, res) {
 
+  const queryOptions = {
+    order: [['title', req.query.order || "ASC"]],
+    limit: 10,
+    where: {}
+  }
+
   if (req.query.name) {
+    queryOptions.where.title = req.query.name;
+    queryOptions.attributes = {
+      exclude: ["id", "genreId"]
+    };
+    queryOptions.include = [{
+      model: Character,
+      attributes: ["name", "image"],
+      through: {
+        attributes: []
+      }
+    }];
     try {
-      const movies = await Movie.findAll({
-        where: {
-          title: req.query.name
-        },
-        order: [['title', req.query.order || "ASC"]],
-        limit: 10
-      });
-      return res.json({ status: "Ok", movies });
-    } catch (error) {
-      console.log(error);
-      return res.json({ status: "Server error" });
-    }
-  } else if (req.query.genre) {
-    try {
-      const movies = await Movie.findAll({
-        where: {
-          '$name$': req.query.genre,
-        },
-        limit: 10,
-        attributes: { exclude: ['genreId'] },
-        include: [{
-          model: Genre,
-          attributes: ["name", "image"]
-        }],
-        order: [['title', req.query.order || "ASC"]],
-      });
-
-      return res.json({ status: "Ok", movies });
-    } catch (error) {
-      console.log(error);
-      return res.json({ status: "Server error" });
-    }
-  } else {
-    try {
-      const movies = await Movie.findAll({
-        limit: 10,
-        order: [['title', req.query.order || "ASC"]],
-      });
-
-      return res.json({ status: "Ok", movies });
+      const movie = await Movie.findOne(queryOptions);
+      return res.json({ status: "Ok", movie });
     } catch (error) {
       console.log(error);
       return res.status(500).json({ status: "Server error" });
     }
+  }
+  if (req.query.genre) {
+    queryOptions.where['$name$'] = req.query.genre;
+    queryOptions.attributes = ["title", "image", "release_date"];
+    queryOptions.include = [{
+      model: Genre,
+      attributes: ["name", "image"]
+    }];
+  }
+
+  try {
+    const movies = await Movie.findAll(queryOptions);
+    return res.json({ status: "Ok", movies });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ status: "Server error" });
   }
 }
 

@@ -21,12 +21,16 @@ module.exports = (sequelize, Model, DataTypes) => {
       },
       release_date: {
         type: DataTypes.STRING,
-        defaultValue: 'none',
+        defaultValue: JSON.stringify((new Date()).toLocaleDateString()),
         allowNull: false,
       },
       rating: {
-        type: DataTypes.ENUM(['1', '2', '3', '4', '5']),
-        defaultValue: '1',
+        type: DataTypes.INTEGER,
+        defaultValue: 3,
+        validate: {
+          min: 1,
+          max: 5,
+        },
         allowNull: false,
       },
     },

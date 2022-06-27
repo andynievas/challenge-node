@@ -1,15 +1,17 @@
 
 require("dotenv").config();
 
+console.clear();
+
 const express = require("express");
-// const cors = require("cors");
+const cors = require("cors");
 const routes = require("./routes");
 const dbInitialSetup = require("./dbInitialSetup");
 
 const APP_PORT = process.env.APP_PORT || 8000;
 const app = express();
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 routes(app);
 
 dbInitialSetup();

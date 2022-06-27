@@ -1,9 +1,8 @@
 
-
-// const { User, Character, Movie } = require("../models");
-
+const dbInitialSetup = require("../dbInitialSetup");
 
 async function reset(req, res) {
+  await dbInitialSetup();
   return res.json({ status: "Ok" });
 }
 

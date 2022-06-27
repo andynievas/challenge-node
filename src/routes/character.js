@@ -14,7 +14,7 @@ characterRouter.get("/characters", characterController.index);
 
 characterRouter.post("/characters", checkToken, validateEmptyFields, characterController.store);
 
-characterRouter.patch("/characters/:name", checkToken, validateEmptyFields, characterController.update);
+characterRouter.patch("/characters/:name", checkToken, characterController.update);
 
 characterRouter.delete("/characters/:name", checkToken, characterController.destroy);
 

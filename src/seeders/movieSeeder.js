@@ -26,7 +26,6 @@ const movies = [
   {
     title: "Encanto",
     image: "none",
-    release_date: "hoy",
     rating: 3,
     genreId: Math.ceil(Math.random() * 6),
   },

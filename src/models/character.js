@@ -12,7 +12,6 @@ module.exports = (sequelize, Model, DataTypes) => {
       },
       name: {
         type: DataTypes.STRING,
-        defaultValue: "",
         allowNull: false,
       },
       image: {
