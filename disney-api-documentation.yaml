@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  description: "This is a sample server Petstore server. For this sample, you need to use a private token., with the header: 'authorization': 'Bearer `token`' to run CRUD operations."
+  description: "This is a sample Disney Movies and Characters server. For this sample, you need to use a private token., with the header: 'authorization': 'Bearer `token`' to run CRUD operations."
   version: 1.0.0
   title: Disney API with Nodejs by Andy Nievas
   contact:
