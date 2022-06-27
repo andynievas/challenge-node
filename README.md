@@ -14,6 +14,8 @@ exponer la información para que cualquier frontend pueda consumirla.
 ### Moverse a la carpeta 'src'.
 #### `cd challenge-node/src`
 
+### Completar variables de entorno en un archivo '.env'.
+
 ### Instalar dependencias.
 #### `npm install`
 
