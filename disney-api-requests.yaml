@@ -1,0 +1,756 @@
+_type: export
+__export_format: 4
+__export_date: 2022-06-27T06:09:13.595Z
+__export_source: insomnia.desktop.app:v2022.4.1
+resources:
+  - _id: req_0886ff4382c043828b41cc3907065c41
+    parentId: wrk_f0ba147110954600b2fef286c1feda0d
+    modified: 1656306670264
+    created: 1656306650290
+    url: "{{ _.base_url }}/db/reset"
+    name: New Request
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1656306650290
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_f0ba147110954600b2fef286c1feda0d
+    parentId: null
+    modified: 1656124646094
+    created: 1656124646094
+    name: disney-api
+    description: ""
+    scope: design
+    _type: workspace
+  - _id: req_wrk_f0ba147110954600b2fef286c1feda0db0012a3e
+    parentId: fld_wrk_f0ba147110954600b2fef286c1feda0df0db3fa4
+    modified: 1656306675676
+    created: 1656134896591
+    url: "{{ base_url }}/characters"
+    name: Get Characters
+    description: ""
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_84fce703a6724926876beecb55859ee2
+    authentication: {}
+    metaSortKey: -1656134896591
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_wrk_f0ba147110954600b2fef286c1feda0df0db3fa4
+    parentId: wrk_f0ba147110954600b2fef286c1feda0d
+    modified: 1656134896614
+    created: 1656134896614
+    name: character
+    description: Everything about Disney Characters
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1656134896614
+    _type: request_group
+  - _id: req_wrk_f0ba147110954600b2fef286c1feda0ddaa175e3
+    parentId: fld_wrk_f0ba147110954600b2fef286c1feda0df0db3fa4
+    modified: 1656306679007
+    created: 1656134896587
+    url: "{{ base_url }}/characters"
+    name: Create a new character
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "S4vitar",
+          "image": "string",
+          "age": 11,
+          "weight_value": 22,
+          "weight_unit": "Kg",
+          "story": "string"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_8e935050de61447d987ad673e75da3f0
+      - id: pair_00d30b2cb473489d96c078d5c1783251
+        name: authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmR5QGdtYWlsLmNvbSIsIm5hbWUiOiJBbmR5IiwiaWF0IjoxNjU2MzA1MzgzfQ.Q2wjigLDyhERij86WUFey0-SZSl7_cMVnywJnJrhsBw
+        description: ""
+    authentication: {}
+    metaSortKey: -1656134896587
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_wrk_f0ba147110954600b2fef286c1feda0d6d24bab9
+    parentId: fld_wrk_f0ba147110954600b2fef286c1feda0df0db3fa4
+    modified: 1656305928923
+    created: 1656134896584
+    url: "{{ base_url }}/characters/{{ characterName }}"
+    name: Update character info
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "S4vitar2042",
+          "image": "string",
+          "age": 55,
+          "weight_value": 552,
+          "weight_unit": "Kg",
+          "story": "Una historia magica"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_c29b540e9804430c8dd2249d1557c76c
+      - id: pair_b78ee2a278ac4757ba0f4dfa6691d923
+        name: authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmR5QGdtYWlsLmNvbSIsIm5hbWUiOiJBbmR5IiwiaWF0IjoxNjU2MzA1MzgzfQ.Q2wjigLDyhERij86WUFey0-SZSl7_cMVnywJnJrhsBw
+        description: ""
+    authentication: {}
+    metaSortKey: -1656134896584
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_wrk_f0ba147110954600b2fef286c1feda0de0687092
+    parentId: fld_wrk_f0ba147110954600b2fef286c1feda0df0db3fa4
+    modified: 1656134896579
+    created: 1656134896579
+    url: "{{ base_url }}/characters/{{ characterName }}"
+    name: Delete character
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1656134896579
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_wrk_f0ba147110954600b2fef286c1feda0d6c5aea39
+    parentId: fld_wrk_f0ba147110954600b2fef286c1feda0d94b19a10
+    modified: 1656209256878
+    created: 1656134896607
+    url: "{{ base_url }}/movies"
+    name: Get all movies
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - name: name
+        disabled: true
+        value: string
+        id: pair_6d53e23899c14cd9a99a10c5f0ee254d
+      - name: genre
+        disabled: true
+        value: string
+        id: pair_33d08bfeb39644389d4fc0db41a3f8d6
+      - name: order
+        disabled: true
+        value: ASC
+        id: pair_7a551b21948844fb8c09e830b399ecd5
+    headers: []
+    authentication: {}
+    metaSortKey: -1656134896607
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_wrk_f0ba147110954600b2fef286c1feda0d94b19a10
+    parentId: wrk_f0ba147110954600b2fef286c1feda0d
+    modified: 1656134896612
+    created: 1656134896612
+    name: movie
+    description: Everything about Disney Movies
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1656134896612
+    _type: request_group
+  - _id: req_wrk_f0ba147110954600b2fef286c1feda0d74a7a059
+    parentId: fld_wrk_f0ba147110954600b2fef286c1feda0d94b19a10
+    modified: 1656135178218
+    created: 1656134896604
+    url: "{{ base_url }}/movies"
+    name: Create a Movie
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "title": "Hola Mundo",
+          "image": "string",
+          "release_date": "ayer",
+          "rating": "5"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_e4b10de8ba754429bf77b52e79f05ce9
+      - id: pair_6fc2584127464e0189af643ff2055672
+        name: authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmR5QGdtYWlsLmNvbSIsIm5hbWUiOiJBbmR5IiwiaWF0IjoxNjU2MTM1MDE1fQ.p08TtSx719MxqhVj5lnxLFtv5_GdX281KYdmLbiL0_w
+        description: ""
+    authentication: {}
+    metaSortKey: -1656134896604
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_wrk_f0ba147110954600b2fef286c1feda0d6c0a0e4b
+    parentId: fld_wrk_f0ba147110954600b2fef286c1feda0d94b19a10
+    modified: 1656135219568
+    created: 1656134896600
+    url: "{{ base_url }}/movies/{{ id }}"
+    name: Update an existing Movie
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "title": "string",
+          "image": "string",
+          "release_ASDdate": "string",
+          "rating": "3"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_e7625d7f5da643ba85aa229fa3f61ed0
+    authentication: {}
+    metaSortKey: -1656134896600
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_wrk_f0ba147110954600b2fef286c1feda0d05be13be
+    parentId: fld_wrk_f0ba147110954600b2fef286c1feda0d94b19a10
+    modified: 1656135963050
+    created: 1656134896596
+    url: "{{ base_url }}/movies/{{ id }}"
+    name: Delete a Movie
+    description: ""
+    method: DELETE
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "title": "string",
+          "image": "string",
+          "release_ASDdate": "string",
+          "rating": "3"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_8a4861045e194ef28e14778ea3dfc337
+    authentication: {}
+    metaSortKey: -1656134896596
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_wrk_f0ba147110954600b2fef286c1feda0d0dd5052c
+    parentId: fld_wrk_f0ba147110954600b2fef286c1feda0d12dea96f
+    modified: 1656305374590
+    created: 1656134896574
+    url: "{{ base_url }}/auth/register"
+    name: Create User
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name":"Andy",
+        	"email":"andy@gmail.com",
+        	"password": "andy1234"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_e64210a29dbb4e829c53d21393c5b8d2
+    authentication: {}
+    metaSortKey: -1656134896574
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_wrk_f0ba147110954600b2fef286c1feda0d12dea96f
+    parentId: wrk_f0ba147110954600b2fef286c1feda0d
+    modified: 1656134896610
+    created: 1656134896610
+    name: user
+    description: Operations about user
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1656134896610
+    _type: request_group
+  - _id: req_wrk_f0ba147110954600b2fef286c1feda0d00ac9da2
+    parentId: fld_wrk_f0ba147110954600b2fef286c1feda0d12dea96f
+    modified: 1656305382340
+    created: 1656134896568
+    url: "{{ base_url }}/auth/login"
+    name: Get an access_token
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email":"andy@gmail.com",
+        	"password": "andy1234"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_91eda566872640d1a857f0c172882564
+    authentication: {}
+    metaSortKey: -1656134896568
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_dd8b3d5c5409ddfcc733f376b69dfd5ecfee0ea9
+    parentId: wrk_f0ba147110954600b2fef286c1feda0d
+    modified: 1656132332170
+    created: 1656124646112
+    name: Base Environment
+    data:
+      base_url: "{{ scheme }}://{{ host }}{{ base_path }}"
+    dataPropertyOrder: {}
+    color: null
+    isPrivate: false
+    metaSortKey: 1656124646112
+    _type: environment
+  - _id: jar_dd8b3d5c5409ddfcc733f376b69dfd5ecfee0ea9
+    parentId: wrk_f0ba147110954600b2fef286c1feda0d
+    modified: 1656124646115
+    created: 1656124646115
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_d2736fed8eb94fb18902efdac5b365ac
+    parentId: wrk_f0ba147110954600b2fef286c1feda0d
+    modified: 1656310002701
+    created: 1656124646097
+    fileName: disney-api
+    contents: >-
+      
+      openapi: 3.0.0
+
+      info:
+        description: "This is a sample server Petstore server. For this sample, you need to use a private token., with the header: 'authorization': 'Bearer `token`' to run CRUD operations."
+        version: 1.0.0
+        title: Disney API with Nodejs by Andy Nievas
+        contact:
+          email: nievasandy73@gmail.com
+      tags:
+        - name: character
+          description: Everything about Disney Characters
+        - name: movie
+          description: Everything about Disney Movies
+        - name: user
+          description: Operations about user
+      paths:
+        /movies:
+          get:
+            tags:
+              - movie
+            summary: Get all movies
+            description: ""
+            operationId: getMovies
+            parameters:
+              - name: name
+                in: query
+                description: Name of movie
+                schema:
+                  type: string
+              - name: genre
+                in: query
+                description: Genre of movie
+                schema:
+                  type: string
+              - name: order
+                in: query
+                description: Filter by order
+                schema:
+                  type: string
+                  enum:
+                    - ASC
+                    - DESC
+                  default: ASC
+            responses:
+              "400":
+                description: Invalid input
+                content:
+                  application/json:
+                    schema:
+                      type: array
+                      items:
+                        $ref: "#/components/schemas/Movie"
+          post:
+            tags:
+              - movie
+            summary: Create a Movie
+            description: ""
+            operationId: updatePet
+            requestBody:
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Movie"
+            responses:
+              "400":
+                description: Invalid ID supplied
+              "404":
+                description: Pet not found
+              "405":
+                description: Validation exception
+        /movies/{id}:
+          patch:
+            tags:
+              - movie
+            summary: Update an existing Movie
+            description: ""
+            operationId: updateMovie
+            parameters:
+              - name: id
+                in: path
+                description: Name of movie
+                required: true
+                schema:
+                  type: string
+            requestBody:
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Movie"
+            responses:
+              "200":
+                description: Ok
+              "400":
+                description: Invalid input
+          delete:
+            tags:
+              - movie
+            summary: Delete a Movie
+            description: ""
+            operationId: deleteMovie
+            parameters:
+              - name: id
+                in: path
+                description: Name of movie
+                required: true
+                schema:
+                  type: string
+            requestBody:
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Movie"
+            responses:
+              "200":
+                description: Ok
+              "400":
+                description: Invalid ID supplied
+              "404":
+                description: Pet not found
+              "405":
+                description: Validation exception
+        /characters:
+          get:
+            tags:
+              - character
+            summary: Get Characters
+            description: ""
+            operationId: placeCharacter
+            responses:
+              "200":
+                description: successful operation
+                content:
+                  application/xml:
+                    schema:
+                      $ref: "#/components/schemas/Character"
+                  application/json:
+                    schema:
+                      $ref: "#/components/schemas/Character"
+              "400":
+                description: Invalid Character
+          post:
+            tags:
+              - character
+            summary: Create a new character
+            description: ""
+            requestBody:
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Character"
+              description: Info to new Character
+              required: true
+            responses:
+              "200":
+                description: successful operation
+              "400":
+                description: error
+        "/characters/{characterName}":
+          patch:
+            tags:
+              - character
+            summary: Update character info
+            description: For valid response try integer IDs with value >= 1 and <= 10. Other
+              values will generated exceptions
+            operationId: getCharacterById
+            parameters:
+              - name: characterName
+                in: path
+                description: ID of pet that needs to be fetched
+                required: true
+                schema:
+                  type: integer
+                  format: int64
+                  minimum: 1
+                  maximum: 10
+            requestBody:
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Character"
+              description: Details to update Character
+              required: true
+            responses:
+              "200":
+                description: successful operation
+                content:
+                  application/xml:
+                    schema:
+                      $ref: "#/components/schemas/Character"
+                  application/json:
+                    schema:
+                      $ref: "#/components/schemas/Character"
+              "400":
+                description: Invalid ID supplied
+              "404":
+                description: Character not found
+          delete:
+            tags:
+              - character
+            summary: Delete character
+            description: For valid response try integer IDs with positive integer value. Negative
+              or non-integer values will generate API errors
+            operationId: deleteCharacter
+            parameters:
+              - name: characterName
+                in: path
+                description: ID of the character that needs to be deleted
+                required: true
+                schema:
+                  type: integer
+                  format: int64
+                  minimum: 1
+            responses:
+              "400":
+                description: Invalid ID supplied
+              "404":
+                description: Character not found
+
+        /auth/register:
+          post:
+            tags:
+              - user
+            summary: Create User
+            description: ""
+            operationId: registerUser
+            responses:
+              "200":
+                description: successful operation
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        status:
+                          type: string
+                          description: Ok
+              "400":
+                description: Username supplied already exists
+        /auth/login:
+          post:
+            tags:
+              - user
+            summary: Get an access_token
+            description: "Get an access_token for CRUD operations"
+            operationId: loginUser
+            responses:
+              "200":
+                description: successful operation
+                content:
+                  application/json:
+                    schema:
+                      type: string
+                      properties:
+                        status:
+                          type: string
+                          description: Ok
+                        access_token:
+                          type: string
+                          description: token
+              "400":
+                description: Invalid username/password supplied
+      externalDocs:
+        description: Find out more about Author
+        url: http://linkedin.com/in/andy-nievas
+      components:
+        schemas:
+          Character:
+            type: object
+            properties:
+              name:
+                type: string
+              image:
+                type: string
+                description: Image URL
+              age:
+                type: integer
+              weight_value:
+                type: integer
+              weight_unit:
+                type: string
+                default: Kg
+              story:
+                type: string
+          User:
+            type: object
+            properties:
+              name:
+                type: string
+              email:
+                type: string
+              password:
+                type: string
+          Movie:
+            type: object
+            properties:
+              title:
+                type: string
+              image:
+                type: string
+              release_date:
+                type: string
+              rating:
+                type: integer
+                enum:
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                default: 3
+    contentType: yaml
+    _type: api_spec
+  - _id: env_19d01254902648bca227533b72820d19
+    parentId: env_dd8b3d5c5409ddfcc733f376b69dfd5ecfee0ea9
+    modified: 1656132348299
+    created: 1656132184880
+    name: AndyPrueba
+    data:
+      scheme: http
+      host: localhost
+      port: "8000"
+      base_url: "{{ scheme }}://{{ host }}:{{ _.port }}"
+    dataPropertyOrder:
+      "&":
+        - scheme
+        - host
+        - port
+        - base_url
+    color: null
+    isPrivate: false
+    metaSortKey: 1656132184880
+    _type: environment
+  - _id: env_env_dd8b3d5c5409ddfcc733f376b69dfd5ecfee0ea9_sub
+    parentId: env_dd8b3d5c5409ddfcc733f376b69dfd5ecfee0ea9
+    modified: 1656134856253
+    created: 1656134856253
+    name: OpenAPI env
+    data:
+      scheme: http
+      base_path: ""
+      host: example.com
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1656134856253
+    _type: environment
