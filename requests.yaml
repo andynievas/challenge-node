@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2022-06-27T06:09:13.595Z
+__export_date: 2022-06-27T07:42:06.442Z
 __export_source: insomnia.desktop.app:v2022.4.1
 resources:
   - _id: req_0886ff4382c043828b41cc3907065c41
@@ -70,7 +70,7 @@ resources:
     _type: request_group
   - _id: req_wrk_f0ba147110954600b2fef286c1feda0ddaa175e3
     parentId: fld_wrk_f0ba147110954600b2fef286c1feda0df0db3fa4
-    modified: 1656306679007
+    modified: 1656313038380
     created: 1656134896587
     url: "{{ base_url }}/characters"
     name: Create a new character
@@ -80,10 +80,10 @@ resources:
       mimeType: application/json
       text: |-
         {
-          "name": "S4vitar",
+          "name": "string",
           "image": "string",
-          "age": 11,
-          "weight_value": 22,
+          "age": 0,
+          "weight_value": 0,
           "weight_unit": "Kg",
           "story": "string"
         }
@@ -109,7 +109,7 @@ resources:
     _type: request
   - _id: req_wrk_f0ba147110954600b2fef286c1feda0d6d24bab9
     parentId: fld_wrk_f0ba147110954600b2fef286c1feda0df0db3fa4
-    modified: 1656305928923
+    modified: 1656313012961
     created: 1656134896584
     url: "{{ base_url }}/characters/{{ characterName }}"
     name: Update character info
@@ -119,12 +119,12 @@ resources:
       mimeType: application/json
       text: |-
         {
-          "name": "S4vitar2042",
+          "name": "string",
           "image": "string",
-          "age": 55,
-          "weight_value": 552,
+          "age": 0,
+          "weight_value": 0,
           "weight_unit": "Kg",
-          "story": "Una historia magica"
+          "story": "string"
         }
     parameters: []
     headers:
@@ -212,7 +212,7 @@ resources:
     _type: request_group
   - _id: req_wrk_f0ba147110954600b2fef286c1feda0d74a7a059
     parentId: fld_wrk_f0ba147110954600b2fef286c1feda0d94b19a10
-    modified: 1656135178218
+    modified: 1656313020145
     created: 1656134896604
     url: "{{ base_url }}/movies"
     name: Create a Movie
@@ -249,7 +249,7 @@ resources:
     _type: request
   - _id: req_wrk_f0ba147110954600b2fef286c1feda0d6c0a0e4b
     parentId: fld_wrk_f0ba147110954600b2fef286c1feda0d94b19a10
-    modified: 1656135219568
+    modified: 1656313025458
     created: 1656134896600
     url: "{{ base_url }}/movies/{{ id }}"
     name: Update an existing Movie
@@ -281,7 +281,7 @@ resources:
     _type: request
   - _id: req_wrk_f0ba147110954600b2fef286c1feda0d05be13be
     parentId: fld_wrk_f0ba147110954600b2fef286c1feda0d94b19a10
-    modified: 1656135963050
+    modified: 1656313026823
     created: 1656134896596
     url: "{{ base_url }}/movies/{{ id }}"
     name: Delete a Movie
@@ -313,7 +313,7 @@ resources:
     _type: request
   - _id: req_wrk_f0ba147110954600b2fef286c1feda0d0dd5052c
     parentId: fld_wrk_f0ba147110954600b2fef286c1feda0d12dea96f
-    modified: 1656305374590
+    modified: 1656313028147
     created: 1656134896574
     url: "{{ base_url }}/auth/register"
     name: Create User
@@ -354,7 +354,7 @@ resources:
     _type: request_group
   - _id: req_wrk_f0ba147110954600b2fef286c1feda0d00ac9da2
     parentId: fld_wrk_f0ba147110954600b2fef286c1feda0d12dea96f
-    modified: 1656305382340
+    modified: 1656313034446
     created: 1656134896568
     url: "{{ base_url }}/auth/login"
     name: Get an access_token
@@ -403,7 +403,7 @@ resources:
     _type: cookie_jar
   - _id: spc_d2736fed8eb94fb18902efdac5b365ac
     parentId: wrk_f0ba147110954600b2fef286c1feda0d
-    modified: 1656310002701
+    modified: 1656315709378
     created: 1656124646097
     fileName: disney-api
     contents: >-
@@ -515,11 +515,6 @@ resources:
                 required: true
                 schema:
                   type: string
-            requestBody:
-              content:
-                application/json:
-                  schema:
-                    $ref: "#/components/schemas/Movie"
             responses:
               "200":
                 description: Ok
